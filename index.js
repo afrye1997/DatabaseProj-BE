@@ -6,7 +6,11 @@
  const port=4000;
 
 
+ var serveStatic = require('serve-static')
 
+ app.use(serveStatic(path.join(__dirname, '/')))
+ 
+ 
 
 app.use(cors());
  app.use("/students", students);
