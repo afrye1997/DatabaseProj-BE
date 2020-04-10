@@ -1,0 +1,21 @@
+{
+  "name": "enrollment-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "idk.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "latest",
+    "body-parser": "latest",
+    "cors": "^2.8.5",
+    "ejs": "^3.0.2",
+    "express": "^4.17.1",
+    "mysql": "^2.18.1",
+    "mysql-ssh": "^1.0.6"
+  }
+}
