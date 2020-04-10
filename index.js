@@ -15,7 +15,7 @@ app.use(cors());
 
 
  app.get("/", (req,res)=>{
-     res.send("server is running")
+     res.send("server is rrunningfjilafjklajfkl;erjkl;gj;lg;lrgrkljgk;r")
  });
 
 app.listen(port,  err=>{
