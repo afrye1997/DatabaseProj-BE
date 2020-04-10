@@ -3,7 +3,7 @@
  const cors= require('cors')
  const app= express();
  const students= require ("./routes/students")
- const port=54397;
+ const PORT=process.env.PORT || 4000;
 
 
  
@@ -18,10 +18,10 @@ app.use(cors());
      res.send("server is rrunningfjilafjklajfkl;erjkl;gj;lg;lrgrkljgk;r")
  });
 
-app.listen(port,  err=>{
+app.listen(PORT,  err=>{
     if (err)
         return  console.log("ERROR", err);
     else
-        console.log(`listening on port ${port}`)
+        console.log(`listening on port ${PORT}`)
 });
 
