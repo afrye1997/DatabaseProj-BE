@@ -18,6 +18,7 @@ router.route("/getStudent")
 router.route("/addStudent")
 .get(async (req, res, next)=> {
     //  students/addStudents 
+    console.log(req)
     const {S_ID,  S_NAME, S_MAJOR}= req.query;
     
     const INSERT_STUDENT_QUERY= `INSERT INTO  STUDENT 
@@ -27,7 +28,7 @@ router.route("/addStudent")
           return res.send(error)
         else{
           console.log(results)
-          var result ="yay";
+          var result ="Successfully added";
             return res.send(result)
         }
       });
