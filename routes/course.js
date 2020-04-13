@@ -18,7 +18,8 @@ router.route("/getCourse/givenDepartment")
 .get(async (req, res, next)=> {
 
   const {C_DEPTCODE}= req.query;
-  const QUERY_DEPT_COURSE= `SELECT * FROM COURSE  WHERE C_DEPTCODE= ${C_DEPTCODE};`;
+
+  const QUERY_DEPT_COURSE= `SELECT * FROM COURSE  WHERE C_DEPTCODE= '${C_DEPTCODE}';`;
 
     connection.query(QUERY_DEPT_COURSE, function (error, results, fields) {
         if (error) throw error;
