@@ -1,4 +1,3 @@
-
 const mysql= require('mysql') 
 
 const connection= mysql.createConnection({
@@ -6,7 +5,6 @@ const connection= mysql.createConnection({
     user:"admin",
     password:"password123",
     database:"csce4523"
-    
 });
 
 module.exports = connection;

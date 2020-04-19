@@ -25,10 +25,12 @@ router.route("/addStudent")
                                VALUES ('${S_ID}', '${S_NAME}','${S_MAJOR}')`;
     connection.query(INSERT_STUDENT_QUERY, function (error, results) {
         if (error)
-          return res.send(error)
+        {
+          return  res.send(error.code)
+        }
         else{
           console.log(results)
-          var result ="Successfully added";
+          var result ="Successfully added!";
             return res.send(result)
         }
       });

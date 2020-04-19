@@ -22,7 +22,8 @@ router.route("/getCourse/givenDepartment")
   const QUERY_DEPT_COURSE= `SELECT * FROM COURSE  WHERE C_DEPTCODE= '${C_DEPTCODE}';`;
 
     connection.query(QUERY_DEPT_COURSE, function (error, results, fields) {
-        if (error) throw error;
+        if (error)
+          res.send(error)
         console.log('The solution is: ', results);
         res.send(results);
       });
@@ -59,17 +60,16 @@ router.route("/addCourse")
     const {C_DEPTCODE, C_COURSENUM, C_TITLE, C_CREDITHOURS}= req.query;
     
     const INSERT_COURSE_QUERY= `INSERT INTO  COURSE 
-                               VALUES (${C_DEPTCODE}, ${C_COURSENUM},'${C_TITLE}',${C_CREDITHOURS})`;
+                               VALUES ('${C_DEPTCODE}', ${C_COURSENUM},'${C_TITLE}',${C_CREDITHOURS})`;
     connection.query(INSERT_COURSE_QUERY, function (error, results) {
         if (error)
-          return res.send(error)
+          return res.send(error.code)
         else{
           console.log(results)
-          var result ="yay";
+          var result ="Course added successfully!";
             return res.send(result)
         }
       });
-   
 }) 
 
 
