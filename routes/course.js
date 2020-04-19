@@ -37,9 +37,9 @@ router.route("/getCourse/givenStudents")
 .get(async (req, res, next)=> {
 
   const {STUDENT_ID}= req.query;
-  const QUERY_COURSE_BY_STUDENT= `SELECT c.C_DEPTCODE, c.C_TITLE, c.C_COURSENUM,c.C_CREDITHOURS
-                                  FROM ENROLLMENT e JOIN COURSE c JOIN  STUDENT s
-                                  WHERE s.S_ID=${STUDENT_ID} 
+  const QUERY_COURSE_BY_STUDENT=   `SELECT DISTINCT c.C_DEPTCODE, c.C_TITLE, c.C_COURSENUM,c.C_CREDITHOURS
+                                    FROM ENROLLMENT e JOIN COURSE c JOIN  STUDENT s
+                                    WHERE e.STUDENT_ID=${STUDENT_ID} 
                                     AND e.COURSE_DEPTCODE=c.C_DEPTCODE 
                                     AND c.C_COURSENUM=e.COURSE_COURSENUM;`;
 
