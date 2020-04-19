@@ -20,17 +20,15 @@ router.route("/addEnrollment")
     //  students/addStudents 
     const {ENROLLMENT_ID, STUDENT_ID, COURSE_DEPTCODE, COURSE_COURSENUM}= req.query;
     
-    const INSERT_ENROLLMENT_QUERY= `INSERT INTO  ENROLLMENT VALUES (${ENROLLMENT_ID}, ${STUDENT_ID}, ${COURSE_DEPTCODE}, ${COURSE_COURSENUM})`;
+    const INSERT_ENROLLMENT_QUERY= `INSERT INTO  ENROLLMENT VALUES (${ENROLLMENT_ID}, ${STUDENT_ID}, '${COURSE_DEPTCODE}', ${COURSE_COURSENUM})`;
     connection.query(INSERT_ENROLLMENT_QUERY, function (error, results) {
         if (error)
         {
-          if (error.errno== 1452)
-            return res.send("CONSTRAINT WATCH IT")
-          return res.send(error)
+          return res.send(error.code)
         }
         else{
           console.log(results)
-          var result ="yay";
+          var result ="Applicant was added successfully!";
             return res.send(result)
         }
       });
