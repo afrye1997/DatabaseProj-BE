@@ -27,7 +27,14 @@ router.route("/addEnrollment").get(async (req, res, next) => {
   const INSERT_ENROLLMENT_QUERY = `INSERT INTO  ENROLLMENT VALUES (${ENROLLMENT_ID}, ${STUDENT_ID}, '${COURSE_DEPTCODE}', ${COURSE_COURSENUM})`;
   connection.query(INSERT_ENROLLMENT_QUERY, function (error, results) {
     if (error) {
-      return res.send(error.code);
+      console.log("hello")
+      console.log(error)
+      if(error.sqlMessage.includes("REFERENCES `COURSE`"))
+        return res.send("Course does not exist!");
+      if(error.sqlMessage.includes("REFERENCES `STUDENT`"))
+        return res.send("Student does not exist!");
+      return res.send(error.code)
+        
     } else {
       console.log(results);
       var result = "Applicant was added successfully!";
