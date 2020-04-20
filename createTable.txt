@@ -4,9 +4,7 @@ Enrollment: StudentId, DeptCode, CourseNum
 
 
 student:
-    S_ID
-    S_NAME
-    S_MAJOR
+    S_ID, S_NAME, S_MAJOR
 
 Course:
     C_DEPTCODE, C_COURSENUM, C_TITLE, C_CREDITHOURS
